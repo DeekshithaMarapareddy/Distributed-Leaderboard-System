@@ -1,24 +1,80 @@
-# distributed-leaderboard-system
-A minimal real-time leaderboard over TCP sockets.
-The server persists scores in leaderboard.json and pushes live updates to every connected client.
+# Distributed Leaderboard System
 
-Requirements
-Python 3.10+ (uses tkinter, which ships with the standard library)
-No third-party packages needed.
+A lightweight real-time leaderboard built using TCP sockets.
+The server stores scores in `leaderboard.json` and pushes live updates to all connected clients.
 
-Run
-1 — Start the server (once, on any machine)
+---
+
+## 🚀 Requirements
+
+* Python 3.10+
+* Uses `tkinter` (included in the standard library)
+* No external dependencies required
+
+---
+
+## ▶️ How to Run
+
+### 1. Start the Server (run once)
+
+```bash
 python server.py
-2 — Start as many clients as you like
-python client.py
-For clients on other machines, open client.py and change:
+```
 
-SERVER_HOST = "127.0.0.1"   # ← replace with the server's IP address
-Features
-Submit score	Enter a team name and score, press SUBMIT (or Enter). Only the highest score per team is kept.
-Live leaderboard	Every connected client receives an automatic push the moment any score changes. No manual refresh needed.
-Persistence	Scores are stored in leaderboard.json — the server survives restarts.
-Files
-server.py          TCP server — manages leaderboard.json and broadcasts updates
-client.py          tkinter GUI client
-leaderboard.json   Created automatically on first submission
+### 2. Start Clients
+
+```bash
+python client.py
+```
+
+For clients on different machines, update this in `client.py`:
+
+```python
+SERVER_HOST = "127.0.0.1"  # Replace with the server's IP address
+```
+
+---
+
+## ✨ Features
+
+### 📌 Score Submission
+
+* Enter a team name and score
+* Press **SUBMIT** (or Enter)
+* Only the highest score per team is stored
+
+### ⚡ Real-Time Updates
+
+* All clients receive instant updates
+* No manual refresh required
+
+### 💾 Persistence
+
+* Data is stored in `leaderboard.json`
+* Server retains data after restart
+
+---
+
+## 📂 Project Structure
+
+```
+server.py          # TCP server (handles clients, storage, broadcasting)
+client.py          # tkinter-based GUI client
+leaderboard.json   # Auto-created file storing scores
+```
+
+---
+
+## 🧠 How It Works
+
+* Server handles multiple clients using sockets and threading
+* Maintains leaderboard data in JSON format
+* Broadcasts updates to all connected clients in real time
+* Ensures only the highest score per team is preserved
+
+---
+
+## 📌 Notes
+
+* Run the server before starting clients
+* Ensure firewall/network settings allow socket connections for multi-device use
