@@ -5,7 +5,7 @@ The server stores scores in `leaderboard.json` and pushes live updates to all co
 
 ---
 
-## 🚀 Requirements
+##  Requirements
 
 * Python 3.10+
 * Uses `tkinter` (included in the standard library)
@@ -13,7 +13,7 @@ The server stores scores in `leaderboard.json` and pushes live updates to all co
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ### 1. Start the Server (run once)
 
@@ -35,27 +35,27 @@ SERVER_HOST = "127.0.0.1"  # Replace with the server's IP address
 
 ---
 
-## ✨ Features
+##  Features
 
-### 📌 Score Submission
+###  Score Submission
 
 * Enter a team name and score
 * Press **SUBMIT** (or Enter)
 * Only the highest score per team is stored
 
-### ⚡ Real-Time Updates
+###  Real-Time Updates
 
 * All clients receive instant updates
 * No manual refresh required
 
-### 💾 Persistence
+###  Persistence
 
 * Data is stored in `leaderboard.json`
 * Server retains data after restart
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 server.py          # TCP server (handles clients, storage, broadcasting)
@@ -65,7 +65,7 @@ leaderboard.json   # Auto-created file storing scores
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 
 * Server handles multiple clients using sockets and threading
 * Maintains leaderboard data in JSON format
@@ -74,7 +74,7 @@ leaderboard.json   # Auto-created file storing scores
 
 ---
 
-## 📌 Notes
+##  Notes
 
 * Run the server before starting clients
 * Ensure firewall/network settings allow socket connections for multi-device use
