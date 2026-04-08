@@ -1,30 +1,24 @@
 # distributed-leaderboard-system
-A lightweight real-time leaderboard built using TCP sockets.
-The server stores scores in leaderboard.json and instantly pushes updates to all connected clients.
+A minimal real-time leaderboard over TCP sockets.
+The server persists scores in leaderboard.json and pushes live updates to every connected client.
 
-**Requirements**
-Python 3.10+
-Uses tkinter (included in the standard library)
-No external dependencies required
-**How to Run**
-1. Start the Server (run once on any machine)
+Requirements
+Python 3.10+ (uses tkinter, which ships with the standard library)
+No third-party packages needed.
+
+Run
+1 — Start the server (once, on any machine)
 python server.py
-2. Start Clients (run on same or different machines)
+2 — Start as many clients as you like
 python client.py
+For clients on other machines, open client.py and change:
 
-For clients on different machines, update this in client.py:
-
-SERVER_HOST = "127.0.0.1"  # Replace with the server's IP address
-**Features**
-Score Submission
-Enter a team name and score, then press SUBMIT (or hit Enter).
-Only the highest score per team is recorded.
-Real-Time Updates
-All connected clients receive instant updates whenever scores change.
-No need to refresh manually.
-Data Persistence
-Scores are saved in leaderboard.json, allowing the server to retain data even after restarts.
-**Project Structure**
-server.py          # Handles connections, data storage, and broadcasting updates  
-client.py          # GUI client built with tkinter  
-leaderboard.json   # Auto-generated file storing scores  
+SERVER_HOST = "127.0.0.1"   # ← replace with the server's IP address
+Features
+Submit score	Enter a team name and score, press SUBMIT (or Enter). Only the highest score per team is kept.
+Live leaderboard	Every connected client receives an automatic push the moment any score changes. No manual refresh needed.
+Persistence	Scores are stored in leaderboard.json — the server survives restarts.
+Files
+server.py          TCP server — manages leaderboard.json and broadcasts updates
+client.py          tkinter GUI client
+leaderboard.json   Created automatically on first submission
