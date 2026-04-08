@@ -1,4 +1,4 @@
-**# distributed-leaderboard-system**
+# distributed-leaderboard-system
 A lightweight real-time leaderboard built using TCP sockets.
 The server stores scores in leaderboard.json and instantly pushes updates to all connected clients.
 
